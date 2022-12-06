@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* Project Options */
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+
+    /* Strict Checks */
+    "strict": true,
+
+    /* Module Resolution */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+
+    /* Linter Checks */
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Advanced */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
