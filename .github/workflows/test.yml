@@ -8,17 +8,27 @@ jobs:
     steps:
       - name: Checkout from repository
         uses: actions/checkout@v3
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
-          cache-dependency-path: src/pnpm-lock.yaml
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: cache-nodemodules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install requirements
-        run: pnpm --config.recursive-install=false install
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: pnpm install
+
       - name: Validate
         run: pnpm run validate

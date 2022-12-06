@@ -31,7 +31,6 @@ On next invocation your Lambda logs should start appearing in your Logtail conso
 | AWS_LAMBDA_RUNTIME_EXTENSION_API_VERSION | Lambda Extension API version date                       | `2020-01-01`                         |
 | AWS_LAMBDA_RUNTIME_TELEMETRY_API_VERSION | Telemetry API version date                              | `2022-07-01`                         |
 
-
 ### License
 
 Unless explicitly stated otherwise all files in this repository are licensed under the MIT License. See [LICENSE](./LICENSE) for more information.
