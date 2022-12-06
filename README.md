@@ -1,4 +1,5 @@
 # logtail-lambda-extension
+[![Test logtail-lambda-extension](https://github.com/stockstory/logtail-lambda-extension/actions/workflows/test.yml/badge.svg)](https://github.com/stockstory/logtail-lambda-extension/actions/workflows/test.yml)
 
 [AWS Lambda Extension](https://docs.aws.amazon.com/lambda/latest/dg/lambda-extensions.html) that uses the [Lambda Telemetry API](https://docs.aws.amazon.com/lambda/latest/dg/telemetry-api-reference.html) to forward logs to a [Logtail HTTP API source](https://docs.logtail.com/integrations/rest-api).
 
