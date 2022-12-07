@@ -24,7 +24,7 @@ jobs:
         id: cache-nodemodules
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-nodemodules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install requirements
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
