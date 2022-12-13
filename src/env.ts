@@ -8,7 +8,7 @@ const envNumber = z
 
 const envSchema = z.object({
   NODE_ENV: z.union([z.literal('production'), z.literal('development'), z.literal('test')]).default('production'),
-  AWS_LAMBDA_RUNTIME_API: z.string().url(), // Provided by the Lambda Env, usually http://127.0.0.1:9001/
+  AWS_LAMBDA_RUNTIME_API: z.string(), // Provided by the Lambda Env, usually http://127.0.0.1:9001/
   AWS_LAMBDA_RUNTIME_EXTENSION_API_VERSION: z.string().default('2020-01-01'), // Extension API version
   AWS_LAMBDA_RUNTIME_TELEMETRY_API_VERSION: z.string().default('2022-07-01'), // Telemetry API version
   EXTENSION_NAME: z.string().default('logtail-lambda-extension'),
