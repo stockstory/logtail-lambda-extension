@@ -1,7 +1,7 @@
 import fetchMock from 'jest-fetch-mock';
 import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
-import { logtailLogForwarder } from '~/forwarders/logtail';
+import { logtailLogForwarder, parseMessageWithPowertoolsLogFormat } from '~/forwarders/logtail';
 import { FunctionLogEvent } from '~/aws/events';
 
 describe('test logtail log forwarding', () => {
@@ -70,5 +70,42 @@ describe('test logtail log forwarding', () => {
       ]),
     );
     expect(listener.logsQueue.length).toBe(3);
+  });
+});
+
+describe('test parseMessageWithPowertoolsLogFormat`', () => {
+  test('should succeed and return parsed result', () => {
+    const log = JSON.stringify({
+      level: 'INFO',
+      message: 'An event occurred',
+      service: 'mylambda-dev-doathing',
+      timestamp: '2023-01-18T01:28:02.072Z',
+      someProperty: 'hello',
+      anotherProperty: ['test'],
+    });
+
+    const result = parseMessageWithPowertoolsLogFormat(log);
+
+    expect(result).toStrictEqual({
+      _tag: 'Right',
+      right: {
+        level: 'INFO',
+        message: 'An event occurred',
+        service: 'mylambda-dev-doathing',
+        timestamp: '2023-01-18T01:28:02.072Z',
+        someProperty: 'hello',
+        anotherProperty: ['test'],
+      },
+    });
+  });
+
+  test('should fail when message is not valid', () => {
+    const log = JSON.stringify({
+      message: 'An event occurred',
+      date: '2023-01-18T01:28:02.072Z',
+    });
+    const result = parseMessageWithPowertoolsLogFormat(log);
+
+    expect(E.isLeft(result)).toStrictEqual(true);
   });
 });
