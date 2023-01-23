@@ -3,7 +3,6 @@ import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
 import { logtailLogForwarder, parseMessageWithPowertoolsLogFormat } from '~/forwarders/logtail';
 import { FunctionLogEvent } from '~/aws/events';
-import { ZodError } from 'zod';
 
 describe('test logtail log forwarding', () => {
   beforeEach(() => {
