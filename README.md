@@ -12,7 +12,7 @@ $ git clone git@github.com:stockstory/logtail-lambda-extension.git
 $ cd logtail-lambda-extension
 $ pnpm install
 $ pnpm run build
-$ aws lambda publish-layer-version --layer-name "logtail-lambda-extension" --region us-west-2 --zip-file "fileb://./dist/extension.zip"
+$ aws lambda publish-layer-version --layer-name "logtail-lambda-extension" --zip-file "fileb://./dist/extension.zip"
 ```
 
 Once deployed set the `LOGTAIL_TOKEN` environment variable on your Lambda to your HTTP API source from Logtail, and [add the layer](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html) to your Lambda function.
