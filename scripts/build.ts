@@ -44,7 +44,7 @@ const run = () =>
           bundle: true,
           minify: false,
           platform: 'node',
-          target: 'node16',
+          target: 'node20',
           outfile: outputIndex,
         }),
       (error) => new Error(`Error during build: ${error instanceof Error ? error.message : error}`),

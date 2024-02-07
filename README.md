@@ -15,7 +15,7 @@ $ pnpm run build
 $ aws lambda publish-layer-version \
       --layer-name "logtail-lambda-extension" \
       --zip-file "fileb://./dist/extension.zip" \
-      --compatible-runtimes nodejs16.x nodejs18.x \
+      --compatible-runtimes nodejs20.x \
       --compatible-architectures x86_64 arm64
 ```
 
