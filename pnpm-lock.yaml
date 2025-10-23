@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   fp-ts:
     specifier: ^2.16.11
@@ -49,6 +45,9 @@ devDependencies:
   eslint-plugin-prettier:
     specifier: ^5.5.4
     version: 5.5.4(eslint-config-prettier@10.1.8)(eslint@9.38.0)(prettier@3.6.2)
+  globals:
+    specifier: ^16.4.0
+    version: 16.4.0
   prettier:
     specifier: ^3.6.2
     version: 3.6.2
@@ -1826,6 +1825,11 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
+  /globals@16.4.0:
+    resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
+    engines: {node: '>=18'}
+    dev: true
+
   /globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: true
@@ -2764,3 +2768,7 @@ packages:
   /zod@4.1.12:
     resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

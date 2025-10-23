@@ -1,6 +1,6 @@
 import { subscribeTelemetry, SubscriptionBody } from '~/aws/subscribe';
 import { either as E } from 'fp-ts';
-import { describe, test, expect, beforeEach, vi } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 
 describe('test AWS Extension Telemetry', () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import { either as E } from 'fp-ts';
 import { logtailLogForwarder, parseMessageWithPowertoolsLogFormat } from '~/forwarders/logtail';
 import { FunctionLogEvent } from '~/aws/events';
-import { describe, test, expect, beforeEach, vi } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 
 describe('test logtail log forwarding', () => {
   beforeEach(() => {
@@ -32,7 +32,6 @@ describe('test logtail log forwarding', () => {
 
     expect(fetchMock.mock.calls.length).toBe(1);
     expect(fetchMock.mock.calls[0]?.[0]).toEqual(ingestionUrl);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(fetchMock.mock.calls[0]?.[1]?.body).toEqual(
       JSON.stringify([
         { dt: new Date('2022-10-12T00:03:50.000Z'), message: '[INFO] Hello world, I am a function!' },
@@ -58,10 +57,7 @@ describe('test logtail log forwarding', () => {
 
     expect(fetchMock.mock.calls.length).toBe(1);
     expect(fetchMock.mock.calls[0]?.[0]).toEqual(ingestionUrl);
-    expect(
-      // eslint-disable-next-line
-      fetchMock.mock.calls[0]?.[1]?.body,
-    ).toEqual(
+    expect(fetchMock.mock.calls[0]?.[1]?.body).toEqual(
       JSON.stringify([
         { dt: new Date('2022-10-12T00:03:50.000Z'), message: '[INFO] Hello world, I am a function!' },
         { dt: new Date('2022-10-12T00:03:50.000Z'), message: '[INFO] Hello world, I am a function!' },

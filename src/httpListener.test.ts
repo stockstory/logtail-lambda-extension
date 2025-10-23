@@ -1,6 +1,6 @@
 import { taskEither as TE, function as F } from 'fp-ts';
 import { startTelemetryHttpListener, TelemetryHttpListener } from '~/httpListener';
-import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
+import { describe, test, expect, beforeAll, afterAll, afterEach } from 'vitest';
 
 const EXTENSION_NAME = 'test-extension';
 const serverEndpoint = new URL('http://localhost:9324');

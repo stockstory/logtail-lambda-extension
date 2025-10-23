@@ -15,10 +15,10 @@
     "test:ui": "vitest --ui",
     "format": "prettier --ignore-path=.gitignore --check .",
     "format:fix": "prettier --ignore-path=.gitignore --write .",
-    "lint": "eslint --ext .ts .",
-    "lint:fix": "eslint --ext .ts --fix .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
-    "validate": "pnpm run lint && pnpm run test"
+    "validate": "pnpm run lint && pnpm run test && pnpm run build"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.4.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "tsx": "^4.20.6",
