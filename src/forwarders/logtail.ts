@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { FunctionLogEvent } from '~/aws/events';
 import { function as F, array as A, either as E } from 'fp-ts';
 import { z } from 'zod';

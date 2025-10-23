@@ -1,7 +1,6 @@
 module.exports = {
   env: {
     node: true,
-    jest: true,
   },
   root: true,
 
@@ -12,7 +11,7 @@ module.exports = {
   },
 
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
-  plugins: ['jest'],
+  plugins: ['vitest'],
 
   rules: {
     'no-console': 'off',

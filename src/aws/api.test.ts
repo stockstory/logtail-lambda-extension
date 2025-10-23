@@ -1,10 +1,10 @@
-import fetchMock from 'jest-fetch-mock';
-import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
 import { pollForNextEvent, registerExtension } from '~/aws/api';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
 
 describe('test AWS Extension registration', () => {
   beforeEach(() => {
+    fetchMock.enableMocks();
     fetchMock.resetMocks();
   });
 
@@ -14,7 +14,7 @@ describe('test AWS Extension registration', () => {
 
   test('registration succeeds with 200', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/extension/register` &&
         request.headers.get('Lambda-Extension-Name') === EXTENSION_NAME,
       JSON.stringify({ message: 'ok' }),

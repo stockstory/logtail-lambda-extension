@@ -1,7 +1,6 @@
 import { subscribeTelemetry, SubscriptionBody } from '~/aws/subscribe';
-import fetchMock from 'jest-fetch-mock';
-import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
 
 describe('test AWS Extension Telemetry', () => {
   beforeEach(() => {

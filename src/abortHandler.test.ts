@@ -1,5 +1,6 @@
 import EventEmitter from 'events';
 import { createAbortHandler } from '~/abortHandler';
+import { describe, test, expect } from 'vitest';
 
 describe('test setupAbortHandler`', () => {
   test('abort signal should be triggered on abort()', () => {

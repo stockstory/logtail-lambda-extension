@@ -1,8 +1,7 @@
-import fetchMock from 'jest-fetch-mock';
-import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
 import { logtailLogForwarder, parseMessageWithPowertoolsLogFormat } from '~/forwarders/logtail';
 import { FunctionLogEvent } from '~/aws/events';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
 
 describe('test logtail log forwarding', () => {
   beforeEach(() => {
