@@ -3,21 +3,21 @@ name: Test logtail-lambda-extension
 on: [push, workflow_dispatch]
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     name: Test
     steps:
       - name: Checkout from repository
         uses: actions/checkout@v4
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
 
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Cache node_modules
         uses: actions/cache@v4
