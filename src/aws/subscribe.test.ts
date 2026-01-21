@@ -1,6 +1,5 @@
 import { subscribeTelemetry, SubscriptionBody } from '~/aws/subscribe';
 import fetchMock from 'jest-fetch-mock';
-import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
 
 describe('test AWS Extension Telemetry', () => {
@@ -13,7 +12,7 @@ describe('test AWS Extension Telemetry', () => {
 
   test('telemetry subscription succeeds with 200', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/telemetry` && request.headers.get('Lambda-Extension-Identifier') === extensionId,
       JSON.stringify({ message: 'ok' }),
       { status: 200 },
@@ -38,7 +37,7 @@ describe('test AWS Extension Telemetry', () => {
 
   test('telemetry subscription should throw on non-200', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/telemetry` && request.headers.get('Lambda-Extension-Identifier') === extensionId,
       JSON.stringify({ message: 'ok' }),
       { status: 202 },

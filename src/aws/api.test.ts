@@ -1,5 +1,4 @@
 import fetchMock from 'jest-fetch-mock';
-import { Request } from 'node-fetch';
 import { either as E } from 'fp-ts';
 import { pollForNextEvent, registerExtension } from '~/aws/api';
 
@@ -14,7 +13,7 @@ describe('test AWS Extension registration', () => {
 
   test('registration succeeds with 200', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/extension/register` &&
         request.headers.get('Lambda-Extension-Name') === EXTENSION_NAME,
       JSON.stringify({ message: 'ok' }),
@@ -37,7 +36,7 @@ describe('test AWS Extension registration', () => {
 
   test('registration should throw if no extension name header is returned', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/extension/register` &&
         request.headers.get('Lambda-Extension-Name') === EXTENSION_NAME,
       JSON.stringify({ message: 'ok' }),
@@ -61,7 +60,7 @@ describe('test AWS extension next event', () => {
 
   test('pollForNextEvent should succeed with valid response', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/extension/event/next` &&
         request.headers.get('Lambda-Extension-Identifier') === extensionId,
       JSON.stringify({
@@ -82,7 +81,7 @@ describe('test AWS extension next event', () => {
 
   test('pollForNextEvent should fail with error response', async () => {
     fetchMock.mockIf(
-      (request: Request) =>
+      (request) =>
         request.url === `${baseUrl}/extension/event/next` &&
         request.headers.get('Lambda-Extension-Identifier') === extensionId,
       JSON.stringify({}),
