@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { taskEither as TE, function as F } from 'fp-ts';
 
 export interface SubscriptionBody {

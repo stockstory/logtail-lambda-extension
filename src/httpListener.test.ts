@@ -1,7 +1,6 @@
-import fetchMock from 'jest-fetch-mock';
 import { taskEither as TE, function as F } from 'fp-ts';
 import { startTelemetryHttpListener, TelemetryHttpListener } from '~/httpListener';
-import fetch from 'node-fetch';
+import { describe, test, expect, beforeAll, afterAll, afterEach } from 'vitest';
 
 const EXTENSION_NAME = 'test-extension';
 const serverEndpoint = new URL('http://localhost:9324');
@@ -19,15 +18,19 @@ describe('test http logs listener', () => {
   let listener: TelemetryHttpListener;
 
   beforeAll(async () => {
-    listener = await startServer();
+    // Disable fetch mocks for this suite since we're testing a real HTTP server
     fetchMock.disableMocks();
-    fetchMock.dontMock();
+    listener = await startServer();
   });
 
-  afterAll((done) => {
-    fetchMock.enableMocks();
-    fetchMock.mockReset();
-    listener.server.close(done);
+  afterAll(() => {
+    return new Promise<void>((resolve) => {
+      if (listener?.server) {
+        listener.server.close(() => resolve());
+      } else {
+        resolve();
+      }
+    });
   });
 
   afterEach(() => {

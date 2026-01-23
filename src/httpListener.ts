@@ -36,7 +36,9 @@ export const startTelemetryHttpListener = (
                   E.fold(
                     (error) => {
                       response.writeHead(400);
-                      console.error(`[${EXTENSION_NAME}] Error parsing logs: ${error}`);
+                      console.error(
+                        `[${EXTENSION_NAME}] Error parsing logs: ${error instanceof Error ? error.message : error}`,
+                      );
                     },
                     (count) => {
                       response.writeHead(200);

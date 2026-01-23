@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     /* Project Options */
-    "target": "es2020",
-    "module": "commonjs",
-    "lib": ["es2020"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext"],
 
     /* Strict Checks */
     "strict": true,
 
     /* Module Resolution */
-    "moduleResolution": "node",
     "esModuleInterop": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
       "~/*": ["./src/*"]

@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { taskEither as TE, function as F, option as O } from 'fp-ts';
 import { InvokeEvent, ShutdownEvent } from '~/aws/events';
 

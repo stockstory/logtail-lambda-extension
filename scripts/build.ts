@@ -6,7 +6,7 @@ import path, { dirname } from 'path';
 import { function as F, taskEither as TE } from 'fp-ts';
 import pkg from '../package.json';
 
-const root = path.resolve(__dirname, '../');
+const root = path.resolve(import.meta.dirname, '../');
 
 const extensionName = pkg.name;
 const buildDir = path.join(root, `./dist/build`);

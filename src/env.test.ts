@@ -1,6 +1,7 @@
 import { either as E } from 'fp-ts';
 import { parseEnvironmentVariables } from '~/env';
 import { ZodError } from 'zod';
+import { describe, test, expect } from 'vitest';
 
 describe('test parseEnvironment`', () => {
   test('should succeed and populate defaults', () => {
